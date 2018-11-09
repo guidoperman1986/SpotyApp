@@ -65,8 +65,3 @@ hr {
 .fadeIn {
     animation-name: fadeIn;
 }
-
-.tamano_titulo{
-  font-size: 30px;
-  font-weight: bold;
-}
