@@ -1,6 +1,7 @@
 <div class="container">
 
-  <div class="card-columns">
+
+  <div class="card-columns ml-auto mr-auto">
     <div *ngFor="let item of items" class="card puntero" (click)="verArtista(item)">
       <img class="card-img-top" [src]="item.images | noimage" alt="Card image cap">
       <div class="card-body">

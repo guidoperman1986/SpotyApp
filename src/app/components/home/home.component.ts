@@ -16,21 +16,42 @@ export class HomeComponent {
   constructor(private spotify:SpotifyService) {
       this.error=false;
 
-      this.spotify.getNewReleases()
-                  .subscribe((data:any)=>{
-                      console.log(data);
-                      this.nuevasCanciones=data;
-                      this.cargo=true;
-                  },(errorServicio)=>{
-                        console.log(errorServicio);
-                        this.error=true;
-                        this.cargo=true;
-                        //this.mensageError=error
+      this.spotify.getBearer().subscribe((token:any)=>{      
+        this.spotify.getNewReleases()
+            .subscribe((data:any)=>{
+                /* console.log(data); */
+                this.nuevasCanciones=data;
+                this.cargo=true;
+            },(errorServicio)=>{
+                  /* console.log(errorServicio); */
+                  this.error=true;
+                  this.cargo=true;
+                  //this.mensageError=error
+          });
 
-                  });
-  }
 
-  ngOnInit() {
-  }
+
+      },error=>{        
+        this.error=true;
+        this.cargo=true;
+        this.mensageError = error.message;
+      })
+
+    }
+    
+    ngOnInit() {
+      //if (this.spotify.token != ""){
+      //  
+      //  
+      //}else{
+      //  setTimeout(() => {
+      //    
+      //  }, timeout);
+      //}
+
+        
+      
+
+    }
 
 }
