@@ -7,6 +7,7 @@ import { SpotifyService } from '../../services/spotify.service';
   templateUrl: './home.component.html',
   styles: []
 })
+
 export class HomeComponent {
   nuevasCanciones:any[]=[];
   cargo:boolean;
